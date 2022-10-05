@@ -5,9 +5,10 @@
  * * Both [monthly_payment] and [late_payment] should print in the template in currency format : $1,234
  */
 
+import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from './shared.module';
 
 @Component({
 	selector: 'ng-app',
@@ -21,12 +22,7 @@ import { SharedModule } from './shared.module';
 	template: `<div>
 		<h2>Loan Details</h2>
 		<label for="loan-amount">Enter Loan Amount: </label>
-		<input
-			type="number"
-			id="loan-amount"
-			[(ngModel)]="loan_amount"
-			(ngModelChange)="onValueChanged()"
-		/>
+		<input type="number" id="loan-amount" [(ngModel)]="loan_amount" />
 		<br /><br />
 		<b>Monthly Payment:</b>
 		{{
@@ -43,19 +39,21 @@ import { SharedModule } from './shared.module';
 	</div>`,
 })
 export class Test01Component {
-	loan_amount: number = 1000;
-	monthly_payment: number | string = 200;
-	late_payment: number | string = 10;
+	loan_amount?: number = 100;
 
-	onValueChanged = () => {
-		this.monthly_payment = (100 * 2) / this.loan_amount;
-		this.late_payment = (100 * 5) / this.loan_amount;
-	};
+	get monthly_payment() {
+		return (100 * 2) / this.loan_amount;
+	}
+
+	get late_payment() {
+		return (100 * 5) / this.loan_amount;
+	}
 }
 
 @NgModule({
 	imports: [
-		SharedModule,
+		CommonModule,
+		FormsModule,
 		RouterModule.forChild([
 			{
 				path: '',
