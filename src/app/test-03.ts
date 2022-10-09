@@ -35,6 +35,15 @@ import { FormsModule } from '@angular/forms';
 		<div *ngIf="logged_in">Logged In!</div>
 	</form>`,
 })
+/**
+ * Test03 Component
+ * email {string}.
+ * password {string}
+ * invalidEmail {boolean}
+ * weakPassword {boolean}
+ * logged_in {boolean}
+ * onSubmit {function} - manage form submission and login logic
+ */
 export class Test03Component {
 	email: string = '';
 	password: string = '';
