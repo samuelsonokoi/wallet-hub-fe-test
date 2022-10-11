@@ -31,6 +31,13 @@ import { FormsModule } from '@angular/forms';
 	`,
 	styles: [],
 })
+/**
+ * UserName Component
+ * firstName {string}.
+ * lastName {string}
+ * username {string}
+ * getUsername {function} - Populates the username from first name and last name.
+ */
 export class UserNameComponent {
 	firstName: string;
 	lastName: string;
