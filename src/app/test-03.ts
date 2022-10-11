@@ -43,6 +43,7 @@ import { FormsModule } from '@angular/forms';
  * weakPassword {boolean}
  * logged_in {boolean}
  * onSubmit {function} - manage form submission and login logic
+ * resetFields {function} - reset fields after successful login
  */
 export class Test03Component {
 	email: string = '';
